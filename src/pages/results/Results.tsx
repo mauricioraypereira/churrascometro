@@ -1,6 +1,8 @@
 const Results = () => {
 	return (
-		<div>Results</div>
+		<div className="page-container">
+			Results
+		</div>
 	)
 };
 

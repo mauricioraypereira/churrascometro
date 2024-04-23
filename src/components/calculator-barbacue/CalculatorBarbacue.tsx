@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { foodsNames } from "../../types";
 import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
+import styles from './CalculatorBarbacue.module.css';
 
 const validationScheme = Yup.object().shape({
     peoples: Yup.number().min(1, "Número de pessoas é obrigatório!"),
@@ -17,7 +18,7 @@ const validationScheme = Yup.object().shape({
 const CalculatorBarbacue = () => {
     const navigate = useNavigate();
     return (
-        <div>
+        <div className={styles.container}>
             <Formik 
                 initialValues={{ peoples: 0, selectedFoods: [] }}
                 validationSchema={validationScheme}
@@ -31,26 +32,35 @@ const CalculatorBarbacue = () => {
                 }}>
                 {({ errors, touched }) => (
                     <Form>
-                        <div>
-                            <label htmlFor="peoples">Número de Pessoas:</label>
-                            <Field name="peoples" type="number" />
+                        <div className={styles.inputGroup}>
+                            <label htmlFor="peoples" className={styles.inputLabel}>Número de Pessoas:</label>
+                            <Field 
+                                name="peoples" 
+                                type="number" 
+                                className={styles.inputField}
+                            />
                             {errors.peoples && touched.peoples ? (
-                                <p>{errors.peoples}</p>
+                                <p className={styles.error}>{errors.peoples}</p>
                             ) : null}
                         </div>
                         <h2>Selecione os alimentos para o churrasco</h2>
                         {Object.keys(foodsNames).map((food, index) => (
                             <div key={index}>
-                                <Field type="checkbox" name="selectedFoods" value={food} />
+                                <Field 
+                                    type="checkbox" 
+                                    name="selectedFoods" 
+                                    value={food}
+                                    className={styles.checkboxInput}
+                                />
                                 <label htmlFor="selectedFoods">
                                     {foodsNames[food]}
                                 </label>
                             </div>
                         ))}
                         {errors.selectedFoods ? (
-                            <p>{errors.selectedFoods}</p>
+                            <p className={styles.error}>{errors.selectedFoods}</p>
                         ) : null}
-                        <button type="submit">Calcular</button>
+                        <button type="submit" className={styles.calculateButton}>Calcular</button>
                     </Form>
                 )}
             </Formik>
