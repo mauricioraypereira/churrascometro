@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { Foods, foodsNames, peoplesQuantities } from "../../types";
+import styles from "./ResultsBarbacue.module.css";
 
 type ResultsBarbacue = {
     peoples: number,
@@ -26,12 +27,12 @@ const ResultsBarbacue = () => {
     };
 
     return (
-        <div>
-            <h2>Resultado para {state.peoples} pessoa(s):</h2>
+        <div className={styles.container}>
+            <h2 className={styles.resultTitle}>Resultado para {state.peoples} pessoa(s):</h2>
             {state.selectedFoods.map((food) => (
-               <p key={food}>{foodsNames[food]}: {totalByFood[food]} kg</p>
+               <p key={food} className={styles.resultText}>{foodsNames[food]}: {totalByFood[food]} kg</p>
             ))}
-            <button onClick={resetValues}>Refazer Cálculos</button>
+            <button onClick={resetValues} className={styles.resetButton}>Refazer Cálculos</button>
         </div>
     )
 };
