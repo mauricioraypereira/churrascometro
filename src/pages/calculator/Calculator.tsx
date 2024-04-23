@@ -1,6 +1,11 @@
+import CalculatorBarbacue from "../../components/calculator-barbacue/CalculatorBarbacue";
+
 const Calculator = () => {
     return (
-        <div>Calculator</div>
+        <div>
+            <h1>Calculadora de Churrasco</h1>;
+            <CalculatorBarbacue />
+        </div>
     )
 };
 
