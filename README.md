@@ -5,7 +5,7 @@
 
 Churrascometro é uma aplicação frontend construída durante o curso de **React JS com TypeScript Direto ao Ponto c/ projetos**, com o intuito de mostrar os conhecimento aprendidos.
 
-A aplicação consiste uma inserção de quantas pessoas vão participar do churrasco e quais os alimentos que vão ir pro churrasco, após é feito um cálculo e retorna os valores por KG de cada produto.
+A aplicação consiste uma inserção de quantas pessoas participarão do churrasco e quais os alimentos que precisam ser comprados. Após deverá ser feito o cálculo que retorna os valores por KG de cada produto.
 
 ## Screenshots
 
